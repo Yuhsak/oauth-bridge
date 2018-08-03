@@ -24,6 +24,7 @@
 				}
 				const endpoint = v.endpoint
 				delete v.endpoint
+				v.redirect_uri = location.origin + location.pathname
 				fetch(endpoint + '?' + Query.stringify(v)).then(r => r.json()).then(r => {
 					document.querySelector('#access_token').value = r.access_token
 					document.querySelector('#raw_response').innerText = JSON.stringify(r, null, '  ')
